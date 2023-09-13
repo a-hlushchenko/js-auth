@@ -1,0 +1,94 @@
+@use '../../style' as s;
+@use '../field/index.scss' as field;
+
+.field--select {
+  .field__select {
+    border: 1px solid s.color(box);
+    background-color: s.color(box);
+    position: relative;
+    padding: s.space(4);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: s.space(2);
+    cursor: pointer;
+    width: 100%;
+    transition: border-color 0.3s;
+  }
+
+  .field__value {
+    font-size: 14px;
+    color: s.color(dark);
+
+    &--placeholder {
+      color: s.color('light');
+    }
+  }
+
+  .field__container {
+    display: grid;
+    grid-template-rows: 1fr 0px;
+    position: relative;
+    width: 100%;
+  }
+
+  .field__icon {
+    display: block;
+    position: absolute;
+    right: s.space(4);
+    width: 20px;
+    height: 20px;
+    background-image: url('/svg/select.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }
+
+  .field__option-list {
+    z-index: 1;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: s.color(white);
+    max-height: 0px;
+    overflow-y: scroll;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    left: 0px;
+    display: grid;
+    grid-row: 0px;
+    pointer-events: none;
+    user-select: none;
+    transition: max-height 0.5s, border-color 0.5s;
+
+    &[active] {
+      border-color: s.color(box);
+      max-height: 160px;
+      pointer-events: all;
+      user-select: auto;
+    }
+  }
+
+  .field__option {
+    @include s.click;
+    width: 100%;
+    padding: s.space(3);
+
+    &:not(:last-child) {
+      border-bottom: 1px solid s.color(box);
+    }
+
+    &[active] {
+      color: s.color(main);
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &:active {
+      transform: none;
+      color: s.color(main);
+    }
+  }
+}

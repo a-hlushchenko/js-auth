@@ -1,0 +1,28 @@
+@use '../../style' as s;
+@use '../field/index.scss' as field;
+
+.field--password {
+  .field__wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .field__input {
+      padding-right: 52px;
+    }
+
+    .field__icon {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      right: 16px;
+      background-size: cover;
+      background-image: url('/svg/password-show.svg');
+      @include s.click;
+
+      &[show] {
+        background-image: url('/svg/password-hide.svg');
+      }
+    }
+  }
+}

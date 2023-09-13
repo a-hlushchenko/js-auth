@@ -1,0 +1,6 @@
+@use '../../style' as s;
+
+.back-button {
+  @include s.click;
+  width: fit-content;
+}

@@ -1,0 +1,38 @@
+<div class="page page--background">
+	<header>
+		{{>back-button}}
+	</header>
+	<main class="page__section">
+		<h1 class="page__title">Реєстрація</h1>
+		<form action="" class="form">
+
+			<div class="form__item">
+				{{>field label='Пошта' placeholder='Введіть пошту' type='email' name='email'
+				action="signupForm.change"}}
+				<span name="email" class="form__error">error</span>
+			</div>
+
+			<div class="form__item">
+				{{>field-select list=data.role label='Роль' placeholder='Оберіть роль' name='role'
+				action="signupForm.change"}}
+				<span name="role" class="form__error">error</span>
+			</div>
+
+			<div class="form__item">
+				{{>field-password label='Пароль' placeholder='Введіть пароль' type='password' name='password'
+				action="signupForm.change"}}
+				<span name="password" class="form__error">error</span>
+			</div>
+
+			<div class="form__item">
+				{{>field-checkbox label='Погоджуюсь з правилами сервісу' action="signupForm.change" name='isConfirm'}}
+				<span name="isConfirm" class="form__error">error</span>
+			</div>
+
+		</form>
+
+		<button class="button" type="button" onclick="signupForm.submit()">Зареєструватись</button>
+		<span class="alert alert--error">Увага, помилка!</span>
+	</main>
+
+</div>
