@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
+const { User } = require('../class/user')
+
 router.get('/', function (req, res) {
   res.render('signup', {
     name: 'signup',
