@@ -2,8 +2,8 @@ const express = require('express')
 const router = express.Router()
 
 router.get('/', function (req, res) {
-  res.render('index', {
-    name: 'index',
+  res.render('signup', {
+    name: 'signup',
     component: [''],
     title: 'Головна',
     data: {},
