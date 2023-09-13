@@ -25,6 +25,13 @@
 			</div>
 
 			<div class="form__item">
+				{{>field-password label='Підтвердіть пароль' placeholder='Введіть пароль' type='password'
+				name='password2'
+				action="signupForm.change"}}
+				<span name="password2" class="form__error">error</span>
+			</div>
+
+			<div class="form__item">
 				{{>field-checkbox label='Погоджуюсь з правилами сервісу' action="signupForm.change" name='isConfirm'}}
 				<span name="isConfirm" class="form__error">error</span>
 			</div>

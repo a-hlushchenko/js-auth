@@ -14,6 +14,10 @@
     cursor: pointer;
     width: 100%;
     transition: border-color 0.3s;
+
+    &:hover {
+      border: 1px solid s.color('gray');
+    }
   }
 
   .field__value {
@@ -59,7 +63,7 @@
     grid-row: 0px;
     pointer-events: none;
     user-select: none;
-    transition: max-height 0.5s, border-color 0.5s;
+    transition: max-height 0.3s, border-color 0.3s;
 
     &[active] {
       border-color: s.color(box);
