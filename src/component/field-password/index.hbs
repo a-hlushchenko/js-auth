@@ -2,7 +2,7 @@
 	<label class="field__label" for="{{name}}">{{label}}</label>
 
 	<div class="field__wrapper">
-		<input class="field__input" name="{{name}}" type="{{type}}" placeholder="{{placeholder}}"
+		<input class="field__input validation" name="{{name}}" type="{{type}}" placeholder="{{placeholder}}"
 			oninput="{{action}}(this.name, this.value)">
 		<span onclick="fieldPassword.toggle(this)" class="field__icon"></span>
 	</div>

@@ -13,9 +13,8 @@
   &__error {
     font-size: 12px;
     color: s.color(red);
-    display: none;
 
-    &__active {
+    &--active {
       display: block;
     }
   }
@@ -30,10 +29,20 @@
   font-weight: 700;
 
   @include s.click;
+
+  &--disabled {
+    opacity: 0.5;
+    cursor: default;
+
+    &:hover,
+    &:active {
+      opacity: 0.5;
+      transform: none;
+    }
+  }
 }
 
 .alert {
-  display: none;
   border: 1px solid transparent;
   padding: s.space(3) s.space(4);
   font-size: 14px;
@@ -52,5 +61,15 @@
   &--progress {
     color: s.color(blue);
     border-color: s.color(blue);
+  }
+
+  &--disabled {
+    display: none;
+  }
+}
+
+.validation {
+  &--active {
+    border-color: s.color(red) !important;
   }
 }

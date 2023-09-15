@@ -1,10 +1,15 @@
 @use '../../style' as s;
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
-  margin: auto;
+  margin: 0 auto;
   width: 100%;
-  max-width: 380px;
+  max-width: 500px;
+  height: 100%;
 }
 
 .page {
@@ -24,6 +29,8 @@ body {
   &__section {
     display: grid;
     gap: s.space(6);
+    align-self: center;
+    padding: s.space(8) s.space(6);
   }
 
   &__title {

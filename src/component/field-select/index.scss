@@ -18,6 +18,10 @@
     &:hover {
       border: 1px solid s.color('gray');
     }
+
+    &:focus {
+      border-color: s.color(main);
+    }
   }
 
   .field__value {

@@ -9,37 +9,37 @@
 			<div class="form__item">
 				{{>field label='Пошта' placeholder='Введіть пошту' type='email' name='email'
 				action="signupForm.change"}}
-				<span name="email" class="form__error">error</span>
+				<span name="email" class="form__error"></span>
 			</div>
 
 			<div class="form__item">
 				{{>field-select list=data.role label='Роль' placeholder='Оберіть роль' name='role'
 				action="signupForm.change"}}
-				<span name="role" class="form__error">error</span>
+				<span name="role" class="form__error"></span>
 			</div>
 
 			<div class="form__item">
 				{{>field-password label='Пароль' placeholder='Введіть пароль' type='password' name='password'
 				action="signupForm.change"}}
-				<span name="password" class="form__error">error</span>
+				<span name="password" class="form__error"></span>
 			</div>
 
 			<div class="form__item">
 				{{>field-password label='Підтвердіть пароль' placeholder='Введіть пароль' type='password'
-				name='password2'
+				name='passwordAgain'
 				action="signupForm.change"}}
-				<span name="password2" class="form__error">error</span>
+				<span name="passwordAgain" class="form__error"></span>
 			</div>
 
 			<div class="form__item">
-				{{>field-checkbox label='Погоджуюсь з правилами сервісу' action="signupForm.change" name='isConfirm'}}
-				<span name="isConfirm" class="form__error">error</span>
+				{{>field-checkbox label='Погоджуюсь з умовами сервісу' action="signupForm.change" name='isConfirm'}}
+				<span name="isConfirm" class="form__error"></span>
 			</div>
 
 		</form>
 
-		<button class="button" type="button" onclick="signupForm.submit()">Зареєструватись</button>
-		<span class="alert alert--error">Увага, помилка!</span>
+		<button class="button button--disabled" type="button" onclick="signupForm.submit()">Зареєструватись</button>
+		<span class="alert alert--disabled">Увага, помилка!</span>
 	</main>
 
 </div>
