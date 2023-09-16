@@ -31,5 +31,15 @@
     &:focus {
       border-color: s.color(main);
     }
+
+    &--disabled {
+      &:hover {
+        border-color: transparent;
+      }
+
+      &:focus {
+        border-color: transparent;
+      }
+    }
   }
 }

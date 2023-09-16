@@ -1,5 +1,3 @@
-import { validate } from 'schema-utils'
-
 export const REG_EXP_EMAIL = new RegExp(
   /^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$/,
 )
@@ -32,7 +30,7 @@ export class Form {
         "*[name='passwordAgain']",
       )
 
-      if (passwordAgain.value.length >= 8) {
+      if (passwordAgain.value.length > 0) {
         this.change(passwordAgain.name, passwordAgain.value)
       }
     }
@@ -84,6 +82,10 @@ export class Form {
         'button--disabled',
         Boolean(disabled),
       )
+    }
+
+    if (disabled === false) {
+      this.setAlert('disbled')
     }
 
     this.disabled = disabled

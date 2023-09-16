@@ -4,38 +4,28 @@ import {
   REG_EXP_PASSWORD,
 } from '../../script/form'
 
-class SignupForm extends Form {
+class RecoveryConfirmForm extends Form {
   FIELD_NAME = {
-    EMAIL: 'email',
+    CODE: 'code',
     PASSWORD: 'password',
     PASSWORD_AGAIN: 'passwordAgain',
-    ROLE: 'role',
-    IS_CONFIRM: 'isConfirm',
   }
   FIELD_ERROR = {
     IS_EMPTY: 'Заповніть поле',
     IS_BIG: 'Значення дуже довге',
-    EMAIL: 'Введіть коректну пошту',
+    CODE: 'Введіть код',
     PASSWORD:
       'Мінімум 8 символів, 1 цифра та велика літера',
     PASSWORD_AGAIN: 'Паролі не збігаються',
-    NOT_CONFIRM: 'Погодьтесь з умовами',
-    ROLE: 'Оберіть роль',
   }
 
   validate = (name, value) => {
-    if (String(value).length < 1) {
+    if (String(value).length < 1 || value === undefined) {
       return this.FIELD_ERROR.IS_EMPTY
     }
 
     if (String(value).length > 30) {
       return this.FIELD_ERROR.IS_BIG
-    }
-
-    if (name === this.FIELD_NAME.EMAIL) {
-      if (!REG_EXP_EMAIL.test(String(value))) {
-        return this.FIELD_ERROR.EMAIL
-      }
     }
 
     if (name === this.FIELD_NAME.PASSWORD) {
@@ -52,18 +42,6 @@ class SignupForm extends Form {
         return this.FIELD_ERROR.PASSWORD_AGAIN
       }
     }
-
-    if (name === this.FIELD_NAME.ROLE) {
-      if (isNaN(value)) {
-        return this.FIELD_ERROR.ROLE
-      }
-    }
-
-    if (name === this.FIELD_NAME.IS_CONFIRM) {
-      if (!Boolean(value)) {
-        return this.FIELD_ERROR.NOT_CONFIRM
-      }
-    }
   }
 
   submit = async () => {
@@ -73,7 +51,7 @@ class SignupForm extends Form {
       this.setAlert('progress', 'Завантаження...')
 
       try {
-        const res = await fetch('/signup', {
+        const res = await fetch('/recovery-confirm', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -99,14 +77,13 @@ class SignupForm extends Form {
 
   convertData = () => {
     return JSON.stringify({
-      [this.FIELD_NAME.EMAIL]:
-        this.value[this.FIELD_NAME.EMAIL],
+      [this.FIELD_NAME.CODE]: Number(
+        this.value[this.FIELD_NAME.CODE],
+      ),
       [this.FIELD_NAME.PASSWORD]:
         this.value[this.FIELD_NAME.PASSWORD],
-      [this.FIELD_NAME.ROLE]:
-        this.value[this.FIELD_NAME.ROLE],
     })
   }
 }
 
-window.signupForm = new SignupForm()
+window.recoveryConfirmForm = new RecoveryConfirmForm()

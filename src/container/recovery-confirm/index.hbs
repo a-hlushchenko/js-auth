@@ -1,0 +1,36 @@
+<div class="page page--background">
+	<header>
+		{{>back-button}}
+	</header>
+	<main class="page__section">
+		<h1 class="page__title">Відновлення паролю</h1>
+		<form action="" class="form">
+
+			<div class="form__item">
+				{{>field label='Код' placeholder='Введіть код' type='number' name='code'
+				action="recoveryConfirmForm.change"}}
+				<span name="code" class="form__error"></span>
+			</div>
+
+			<div class="form__item">
+				{{>field-password label='Новий пароль' placeholder='Введіть новий пароль' type='password'
+				name='password'
+				action="recoveryConfirmForm.change"}}
+				<span name="password" class="form__error"></span>
+			</div>
+
+			<div class="form__item">
+				{{>field-password label='Підтвердіть новий пароль' placeholder='Введіть новий пароль' type='password'
+				name='passwordAgain'
+				action="recoveryConfirmForm.change"}}
+				<span name="passwordAgain" class="form__error"></span>
+			</div>
+
+		</form>
+
+		<button class="button button--disabled" type="button" onclick="recoveryConfirmForm.submit()">Змінити
+			пароль</button>
+		<span class="alert alert--success">Код підтвердження надіслано на вашу пошту!</span>
+	</main>
+
+</div>

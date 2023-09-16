@@ -1,5 +1,5 @@
 <div class="field">
 	<label class="field__label" for="{{name}}">{{label}}</label>
-	<input class="field__input validation" name="{{name}}" type="{{type}}" placeholder="{{placeholder}}"
-		oninput="{{action}}(this.name, this.value)">
+	<input class="field__input validation{{#if disabled}} field__input--disabled{{/if}}" name="{{name}}" type="{{type}}"
+		placeholder="{{placeholder}}" {{#if disabled}} disabled{{/if}} oninput="{{action}}(this.name, this.value)">
 </div>
