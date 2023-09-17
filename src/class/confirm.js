@@ -1,3 +1,5 @@
+const nodemailer = require('nodemailer')
+
 class Confirm {
   static #list = []
 
@@ -18,6 +20,8 @@ class Confirm {
       this.delete(item.code)
     }, 1000 * 60 * 60 * 24)
 
+    this.sendMail(data, item.code)
+
     console.log(this.#list)
   }
 
@@ -35,6 +39,38 @@ class Confirm {
     ).data
 
     return data || null
+  }
+
+  static sendMail = (email, code) => {
+    console.log('CODE======', code)
+    let mailTransporter = nodemailer.createTransport({
+      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        user: 'glantoshka@gmail.com',
+        pass: 'npkwbucumxojztfj',
+      },
+    })
+
+    let mailDetails = {
+      from: 'glantoshka@gmail.com',
+      to: email,
+      subject: 'Код підтвердження',
+      html: `<h1>${code}</h1>`,
+    }
+
+    mailTransporter.sendMail(
+      mailDetails,
+      function (err, data) {
+        if (err) {
+          console.log('Error Occurs: ' + err)
+        } else {
+          console.log('Email sent successfully: ' + data)
+        }
+      },
+    )
   }
 }
 

@@ -25,7 +25,10 @@ export class Form {
       delete this.error[name]
     }
 
-    if (name === this.FIELD_NAME.PASSWORD) {
+    if (
+      name === this.FIELD_NAME.PASSWORD &&
+      this.FIELD_NAME.passwordAgain
+    ) {
       const passwordAgain = document.querySelector(
         "*[name='passwordAgain']",
       )

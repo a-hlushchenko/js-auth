@@ -73,3 +73,16 @@
     border-color: s.color(red) !important;
   }
 }
+
+.link {
+  color: s.color(main);
+  text-decoration: none;
+  border-bottom: 1px solid s.color(main);
+
+  @include s.click;
+}
+
+.link__prefix {
+  font-size: 14px;
+  color: s.color(light);
+}

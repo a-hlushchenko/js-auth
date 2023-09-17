@@ -1,0 +1,22 @@
+@use '../../style' as s;
+@use '../../style/form.scss' as form;
+
+main {
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: s.space(5);
+  display: flex;
+  flex-direction: column;
+  gap: s.space(5);
+  text-align: center;
+}
+
+.button {
+  width: 100%;
+  text-decoration: none;
+}
+
+.button--red {
+  background-color: s.color(red);
+}

@@ -4,34 +4,36 @@ const router = express.Router()
 const { User } = require('../class/user')
 
 router.get('/', function (req, res) {
-  res.render('signup', {
-    name: 'signup',
-    component: [
-      'back-button',
-      'field',
-      'field-password',
-      'field-checkbox',
-      'field-select',
-    ],
+  res.render('index', {
+    name: 'index',
+    component: [],
+    title: 'index page',
+    data: {},
+  })
+})
 
-    title: 'Реєстрація',
-    data: {
-      role: [
-        { value: User.USER_ROLE.USER, text: 'Користувач' },
-        {
-          value: User.USER_ROLE.ADMIN,
-          text: 'Адміністратор',
-        },
-        {
-          value: User.USER_ROLE.DEVELOPER,
-          text: 'Розробник',
-        },
-      ],
-    },
+router.get('/home', function (req, res) {
+  res.render('home', {
+    name: 'home',
+    component: [],
+    title: 'Головна',
+    data: {},
+  })
+})
+
+router.get('/logout', function (req, res) {
+  res.render('logout', {
+    name: 'logout',
+    component: [],
+    title: 'logout',
+    data: {},
   })
 })
 
 const auth = require('./auth')
 router.use('/', auth)
+
+const test = require('./test')
+router.use('/', test)
 
 module.exports = router
