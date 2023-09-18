@@ -86,3 +86,22 @@
   font-size: 14px;
   color: s.color(light);
 }
+
+.skeleton {
+  max-width: 350px;
+  animation: skeleton 1s infinite alternate;
+
+  &--mini {
+    max-width: 200px;
+  }
+}
+
+@keyframes skeleton {
+  from {
+    background-color: rgb(0, 0, 0, 0.05);
+  }
+
+  to {
+    background-color: rgb(0, 0, 0, 0.15);
+  }
+}

@@ -33,7 +33,7 @@ router.get('/logout', function (req, res) {
 const auth = require('./auth')
 router.use('/', auth)
 
-const test = require('./test')
-router.use('/', test)
+const user = require('./user')
+router.use('/', user)
 
 module.exports = router

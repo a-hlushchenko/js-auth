@@ -26,16 +26,30 @@ body {
     background-position: top right;
   }
 
+  &--top {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__section {
     display: grid;
     gap: s.space(6);
     align-self: center;
-    padding: s.space(8) s.space(6);
+    width: 100%;
   }
 
   &__title {
     font-size: 24px;
     font-weight: 700;
     color: s.color(dark);
+  }
+
+  &__divider {
+    display: block;
+    border: none;
+    margin: 0;
+    height: 1px;
+    width: 100%;
+    background-color: s.color(divider);
   }
 }
